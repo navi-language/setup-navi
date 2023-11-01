@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { exec } from '@actions/exec';
+import { execSync } from 'child_process';
 import * as cache from './cache';
 
 export async function run() {
@@ -14,12 +14,12 @@ export async function run() {
 
     if (!toolPath) {
       if (versionSpec) {
-        await exec(
-          'curl', [`-sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`]
+        execSync(
+          `curl -sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`
         );
       } else {
         // download latest
-        await exec('curl', ['-L https://navi-lang.org/install | sh']);
+        execSync('curl -L https://navi-lang.org/install | sh');
       }
     }
 
