@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: |
+          yarn
+          yarn build
+      - name: Setup Navi
+        uses: ./
+        with:
+          navi-version: 0.8.6
+      - name: Test
+        run: navi --version

@@ -1,0 +1,13 @@
+name: "Setup Navi"
+description: "Set up a specific version of Navi and add the command-line tools to the PATH"
+author: "GitHub"
+branding:
+  color: red
+  icon: download
+inputs:
+  navi-version:
+    description: "Version range or exact version of a Navi version to use."
+    default: ">= 0.8.0"
+runs:
+  using: "node12"
+  main: "dist/index.js"
