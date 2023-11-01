@@ -15,11 +15,11 @@ export async function run() {
     if (!toolPath) {
       if (versionSpec) {
         await exec(
-          `curl -sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`
+          'curl', `-sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`
         );
       } else {
         // download latest
-        await exec('curl -L https://navi-lang.org/install | sh');
+        await exec('curl', '-L https://navi-lang.org/install | sh');
       }
     }
 
