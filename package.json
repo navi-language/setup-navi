@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "setup navi action",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc && ncc build -o dist src/setup-navi.ts",
     "format": "prettier --write **/*.ts",
