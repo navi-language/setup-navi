@@ -29596,14 +29596,17 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let versionSpec = core.getInput('navi-version');
-            if (versionSpec.startsWith('v')) {
-                versionSpec = versionSpec.slice(1);
+            if (!versionSpec.startsWith('v')) {
+                // 1.0 -> v1.0
+                if (versionSpec.match(/\d+\./)) {
+                    versionSpec = `v${versionSpec}`;
+                }
             }
             // check in the VMs cache first
             let toolPath = yield cache.find(versionSpec);
             if (!toolPath) {
                 if (versionSpec) {
-                    (0, child_process_1.execSync)(`curl -sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`);
+                    (0, child_process_1.execSync)(`curl -sSL https://navi-lang.org/install | sh -s -- ${versionSpec}`);
                 }
                 else {
                     // download latest

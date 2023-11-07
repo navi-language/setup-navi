@@ -5,8 +5,11 @@ import * as cache from './cache';
 export async function run() {
   try {
     let versionSpec = core.getInput('navi-version');
-    if (versionSpec.startsWith('v')) {
-      versionSpec = versionSpec.slice(1);
+    if (!versionSpec.startsWith('v')) {
+      // 1.0 -> v1.0
+      if (versionSpec.match(/\d+\./)) {
+        versionSpec = `v${versionSpec}`;
+      }
     }
 
     // check in the VMs cache first
@@ -15,7 +18,7 @@ export async function run() {
     if (!toolPath) {
       if (versionSpec) {
         execSync(
-          `curl -sSL https://navi-lang.org/install | sh -s -- v${versionSpec}`
+          `curl -sSL https://navi-lang.org/install | sh -s -- ${versionSpec}`
         );
       } else {
         // download latest
