@@ -29613,6 +29613,7 @@ function run() {
                     (0, child_process_1.execSync)('curl -L https://navi-lang.org/install | sh');
                 }
             }
+            (0, child_process_1.execSync)(`navi -V`);
             core.addPath(toolPath);
         }
         catch (error) {

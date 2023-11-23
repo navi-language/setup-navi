@@ -26,6 +26,8 @@ export async function run() {
       }
     }
 
+    execSync(`navi -V`);
+
     core.addPath(toolPath);
   } catch (error) {
     // unhandled
