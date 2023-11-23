@@ -7,7 +7,7 @@ branding:
 inputs:
   navi-version:
     required: false
-    description: "Version range or exact version of a Navi version to use."
+    description: "Navi version to use."
     default: ""
 runs:
   using: "node20"

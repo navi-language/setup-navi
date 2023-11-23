@@ -29603,7 +29603,7 @@ function run() {
                 }
             }
             // check in the VMs cache first
-            let toolPath = yield cache.find(versionSpec);
+            let toolPath = yield cache.find(versionSpec || 'latest');
             if (!toolPath) {
                 if (versionSpec) {
                     (0, child_process_1.execSync)(`curl -sSL https://navi-lang.org/install | sh -s -- ${versionSpec}`);

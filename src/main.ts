@@ -13,7 +13,7 @@ export async function run() {
     }
 
     // check in the VMs cache first
-    let toolPath: string = await cache.find(versionSpec);
+    let toolPath: string = await cache.find(versionSpec || 'latest');
 
     if (!toolPath) {
       if (versionSpec) {
