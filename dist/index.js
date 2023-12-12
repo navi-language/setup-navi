@@ -25688,11 +25688,11 @@ function run() {
             }
             // check in the VMs cache first
             if (versionSpec) {
-                (0, child_process_1.execSync)(`curl -sSL https://navi-lang.org/install | sh -s -- ${versionSpec}`);
+                (0, child_process_1.execSync)(`curl -sSL https://navi-lang.org/install | bash -s -- ${versionSpec}`);
             }
             else {
                 // download latest
-                (0, child_process_1.execSync)("curl -L https://navi-lang.org/install | sh");
+                (0, child_process_1.execSync)("curl -L https://navi-lang.org/install | bash");
             }
             let toolPath = `${process.env.HOME}/.navi`;
             core.addPath(toolPath);
