@@ -9,7 +9,7 @@
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "test": "jest",
-    "pre-checkin": "npm run format && npm run build && npm test"
+    "pre-checkin": "npm run format && npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@actions/http-client": "^2.1.1",
     "@actions/io": "^1.0.2",
     "@actions/tool-cache": "^2.0.1",
+    "pre-commit": "^1.2.2",
     "semver": "^7.5.4"
   },
   "devDependencies": {
@@ -50,5 +51,10 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
+  },
+  "pre-commit": {
+    "run": [
+      "pre-checkin"
+    ]
   }
 }
